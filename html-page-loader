@@ -18,9 +18,13 @@
 /* Paste this code just inside body tag */
 <div class="se-pre-con"></div>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 <script>
-/* Paste this at end of code after everything gets loaded */
-$(document).ready(function(){
-    $(".se-pre-con").fadeOut("slow");
-});
+	//paste this code under head tag or in a seperate js file.
+	// Wait for window load
+	$(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
 </script>
