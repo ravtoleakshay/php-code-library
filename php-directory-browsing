@@ -1,0 +1,25 @@
+function listFolderFiles($dir)
+{
+	$ffs = scandir($dir,1);
+	echo '<ol>';
+	foreach($ffs as $ff)
+	{
+		if($ff != '.' && $ff != '..')
+		{
+			if(is_dir($dir.'/'.$ff))
+			{
+				$path = $dir."/".$ff;
+				$ff1 = str_replace("_"," ",$ff);
+
+				echo "<li><label><a href='#' data-url='".$path."'>".$ff1."</a></label>";
+					
+				listFolderFiles($dir.'/'.$ff);	
+
+				echo '</li>';
+			}
+		}
+	}
+	echo '</ol>';
+}
+
+listFolderFiles('/path/to/folder/to/scan/');
