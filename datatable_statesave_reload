@@ -1,0 +1,13 @@
+ var table_load = $('#dataTables-example').DataTable({
+    "scrollX": true,
+    responsive: true,
+    // save the privious state of table i.e. saves current page
+    stateSave: true,
+    // added to apply this state save on same table
+    stateSaveCallback: function(settings,data) {
+        localStorage.setItem( 'DataTables_' + settings.sInstance, JSON.stringify(data) )
+    },
+    stateLoadCallback: function(settings) {
+        return JSON.parse( localStorage.getItem( 'DataTables_' + settings.sInstance ) )
+    }
+});
